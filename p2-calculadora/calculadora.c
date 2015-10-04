@@ -1,0 +1,154 @@
+/******************************************************************************/
+/*                                                                            */
+/* Description: Practica guiada 2                                             */
+/*				Interfaz de una calculadora                                   */
+/*                                                                            */
+/* Authors: Bartomeu Crespi Jimenez & Francesc Bisquerra Castell              */
+/*                                                                            */
+/******************************************************************************/
+
+#include "KEYBlib.h"
+#include "LCDlib.h"
+#include "delay.h"
+
+#include <stdio.h>
+
+#include <p30f4011.h>
+
+int main(void) {
+
+	// char to save the key pressed and the last/before key
+	char c, last = -1;
+	// Counter of keys pressed (to know the cursor position)
+	unsigned int cursorPosition = 0;
+
+	// Initialize keyboard and lcd
+	KeybInit();
+	LCDInit();
+
+	// ALERT!
+	// LCD has 2x16 digits that we can see (without scroll)
+
+	while(1) {
+
+		// Get the key pressed
+		c = getKeyNotBlocking();
+
+		// Need release the key for write the same key
+		if(c != NO_KEY_PRESSED && c != last) {
+
+			// Save key pressed
+			last = c;
+
+			// Key actions
+			if(c != 9 && c != 10) {	// Pressed a writtable key
+
+				switch(c) {
+
+					case 0:
+						LCDPrint("1");
+					break;
+					case 1:
+						LCDPrint("2");
+					break;
+					case 2:
+						LCDPrint("+");
+					break;
+					case 3:
+						LCDPrint("3");
+					break;
+					case 4:
+						LCDPrint("4");
+					break;
+					case 5:
+						LCDPrint("-");
+					break;
+					case 6:
+						LCDPrint("5");
+					break;
+					case 7:
+						LCDPrint("6");
+					break;
+					case 8:
+						LCDPrint("x");
+					break;
+					case 11:
+						LCDPrint("/");
+					break;
+
+				}
+
+				// Move cursor
+				if(cursorPosition == 15) {
+					// Cursor is at the end of the first line
+					// Move to second line
+					LCDMoveSecondLine();
+					// Increase cursor position
+					cursorPosition++;
+
+				} else if(cursorPosition == 31) {
+					// Cursor is at the end of the second line
+					// Move cursor back
+					LCDMoveLeft();
+
+				} else {
+					// Cursor is between extreme positions  
+					// Increase cursor position
+					cursorPosition++;
+				}
+
+			} else if(c != 10) { // Pressed erase and go back key ( <- )
+
+				if(cursorPosition == 0) {
+					// Cursor is at the begining of the first line
+					// Do nothing
+
+				} else if(cursorPosition == 16) {
+					// Cursor is at the begining of the second line
+					// Move cursor to the last position of the first line
+					LCDSetCursor(15);
+					// Erase content (print a white space)
+					LCDPrint(" ");
+					// Move cursor back
+					LCDMoveLeft();
+					// Decrease cursor position
+					cursorPosition--;
+
+				} else if(cursorPosition == 31) {
+					// Cursor is at the end of the second line
+					// Erase content (print a white space)
+					LCDPrint(" ");
+					// Move cursor back
+					LCDMoveLeft();
+					// Decrease cursor position
+					cursorPosition--;
+
+				} else {
+					// Cursor is between extreme positions
+					// Move cursor back
+					LCDMoveLeft();
+					// Erase content (print a white space)
+					LCDPrint(" ");
+					// Move cursor back
+					LCDMoveLeft();
+					// Decrease cursor position
+					cursorPosition--;
+				}
+
+			} else { // Pressed clear key ( c )
+				
+				// Clear LCD
+				LCDClear();
+				// Move to home
+				LCDMoveHome();
+				// Set counter of cursor position to 0 (zero)
+				cursorPosition = 0;
+			}
+
+		} else { // Key non released or any key pressed
+			last = c;
+			// Correct when release any key
+			Delay15ms();
+		}
+	}
+}
