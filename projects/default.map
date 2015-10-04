@@ -5,7 +5,7 @@ Tool Name:
 
 Command:
   -p30F4011 \
-  -ocalculadora.cof \
+  -odefault.cof \
   -Lc:/program files (x86)/microchip/mplab c30/bin/bin/.. \
   -Lc:/program files (x86)/microchip/mplab c30/bin/bin/../../lib \
   -Lc:/program files (x86)/microchip/mplab c30/bin/bin/../../lib/PIC24E \
@@ -20,15 +20,15 @@ Command:
   -Lc:/program files (x86)/microchip/mplab c30/bin/bin/../../support/dsPIC33E/gld \
   -Lc:/program files (x86)/microchip/mplab c30/bin/bin/../../lib/dsPIC33F \
   -Lc:/program files (x86)/microchip/mplab c30/bin/bin/../../support/dsPIC33F/gld \
-  calculadora.o \
   delay.o \
   KEYBlib.o \
   LCDlib.o \
   LEDlib.o \
+  calculadora.o \
   -Tp30F4011.gld.00 \
   --defsym=__MPLAB_BUILD=1 \
   --defsym=__MPLAB_DEBUG=1 \
-  -Map=calculadora.map \
+  -Map=default.map \
   --report-mem \
   -start-group \
   --library=pic30-coff \
@@ -50,10 +50,10 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x100                0x94            0xde  (222)
 .const                       0x194                0x16            0x21  (33)
-.text                        0x1aa               0x860           0xc90  (3216)
-.dinit                       0xa0a                 0x2             0x3  (3)
+.text                        0x1aa               0x848           0xc6c  (3180)
+.dinit                       0x9f2                 0x2             0x3  (3)
 
-                     Total program memory used (bytes):          0xd92  (3474) 7%
+                     Total program memory used (bytes):          0xd6e  (3438) 7%
 
 
 Data Memory  [Origin = 0x800, Length = 0x800]
@@ -104,24 +104,24 @@ External Symbols in Program Memory (by address):
                   0x00064e                  _getKeyNotBlocking
                   0x00072c                  _getMultiKeyNotBlocking
                   0x00081a                  _main
-                  0x000922                  _LEDInit
-                  0x000934                  _onLED
-                  0x000984                  _offLED
-                  0x0009d4                  _Delay3Tcy
-                  0x0009d6                  _Delay10us
-                  0x0009de                  _Delay20us
-                  0x0009e6                  _Delay150us
-                  0x0009ee                  _Delay5ms
-                  0x0009f6                  _Delay15ms
+                  0x00090a                  _LEDInit
+                  0x00091c                  _onLED
+                  0x00096c                  _offLED
+                  0x0009bc                  _Delay3Tcy
+                  0x0009be                  _Delay10us
+                  0x0009c6                  _Delay20us
+                  0x0009ce                  _Delay150us
+                  0x0009d6                  _Delay5ms
+                  0x0009de                  _Delay15ms
 
 External Symbols in Program Memory (by name):
 
-                  0x0009d6                  _Delay10us
-                  0x0009e6                  _Delay150us
-                  0x0009f6                  _Delay15ms
-                  0x0009de                  _Delay20us
-                  0x0009d4                  _Delay3Tcy
-                  0x0009ee                  _Delay5ms
+                  0x0009be                  _Delay10us
+                  0x0009ce                  _Delay150us
+                  0x0009de                  _Delay15ms
+                  0x0009c6                  _Delay20us
+                  0x0009bc                  _Delay3Tcy
+                  0x0009d6                  _Delay5ms
                   0x000562                  _KeybInit
                   0x0001f0                  _LCDClear
                   0x00026c                  _LCDHideCursor
@@ -140,7 +140,7 @@ External Symbols in Program Memory (by name):
                   0x0002e8                  _LCDWriteCmd
                   0x000468                  _LCDWriteData
                   0x0003de                  _LCDWriteNibbleCmd
-                  0x000922                  _LEDInit
+                  0x00090a                  _LEDInit
                   0x000190                  __DefaultInterrupt
                   0x000132                  __data_init
                   0x000132                  __data_init_standard
@@ -150,8 +150,8 @@ External Symbols in Program Memory (by name):
                   0x00064e                  _getKeyNotBlocking
                   0x00072c                  _getMultiKeyNotBlocking
                   0x00081a                  _main
-                  0x000984                  _offLED
-                  0x000934                  _onLED
+                  0x00096c                  _offLED
+                  0x00091c                  _onLED
                   0x0002aa                  _waitLCD
 
 Memory Configuration
@@ -179,11 +179,11 @@ FICD             0xf8000c           0x000002
 
 Linker script and memory map
 
-LOAD calculadora.o
 LOAD delay.o
 LOAD KEYBlib.o
 LOAD LCDlib.o
 LOAD LEDlib.o
+LOAD calculadora.o
 LOAD c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib/dsPIC30F\libp30F4011-coff.a
                     0x8005c0                  __FUID0 = 0x8005c0
                     0x8005c2                  __FUID1 = 0x8005c2
@@ -1142,20 +1142,20 @@ LOAD c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib\libpic30-coff.
 LOAD c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib\libm-coff.a
 LOAD c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib\libc-coff.a
 END GROUP
-OUTPUT(calculadora.cof coff-pic30)
+OUTPUT(default.cof coff-pic30)
 LOAD data_init
 LOAD default_isr
 
 __c30_signature
                   0x000000         0x24
  __c30_signature
-                  0x000000          0x6 calculadora.o
+                  0x000000          0x6 KEYBlib.o
  __c30_signature
-                  0x000006          0x6 KEYBlib.o
+                  0x000006          0x6 LCDlib.o
  __c30_signature
-                  0x00000c          0x6 LCDlib.o
+                  0x00000c          0x6 LEDlib.o
  __c30_signature
-                  0x000012          0x6 LEDlib.o
+                  0x000012          0x6 calculadora.o
  __c30_signature
                   0x000018          0x6 c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib\libpic30-coff.a(crt0_standard.o)
  __c30_signature
@@ -1164,7 +1164,7 @@ __c30_signature
 .const              0x8194         0x16 load address 0x000194  
  .const             0x8194         0x16 calculadora.o
 
-.text             0x0001aa        0x860
+.text             0x0001aa        0x848
  .text            0x0001aa        0x3b8 LCDlib.o
                   0x0001aa                  LCDInit
                   0x0001f0                  LCDClear
@@ -1189,19 +1189,19 @@ __c30_signature
                   0x000576                  getKeyBlocking
                   0x00064e                  getKeyNotBlocking
                   0x00072c                  getMultiKeyNotBlocking
- .text            0x00081a        0x108 calculadora.o
+ .text            0x00081a         0xf0 calculadora.o
                   0x00081a                  main
- .text            0x000922         0xb2 LEDlib.o
-                  0x000922                  LEDInit
-                  0x000934                  onLED
-                  0x000984                  offLED
- .text            0x0009d4         0x36 delay.o
-                  0x0009d4                  Delay3Tcy
-                  0x0009d6                  Delay10us
-                  0x0009de                  Delay20us
-                  0x0009e6                  Delay150us
-                  0x0009ee                  Delay5ms
-                  0x0009f6                  Delay15ms
+ .text            0x00090a         0xb2 LEDlib.o
+                  0x00090a                  LEDInit
+                  0x00091c                  onLED
+                  0x00096c                  offLED
+ .text            0x0009bc         0x36 delay.o
+                  0x0009bc                  Delay3Tcy
+                  0x0009be                  Delay10us
+                  0x0009c6                  Delay20us
+                  0x0009ce                  Delay150us
+                  0x0009d6                  Delay5ms
+                  0x0009de                  Delay15ms
 
-.dinit            0x000a0a          0x2
- .dinit           0x000a0a          0x2 data_init
+.dinit            0x0009f2          0x2
+ .dinit           0x0009f2          0x2 data_init

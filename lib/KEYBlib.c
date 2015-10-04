@@ -40,8 +40,8 @@
 /* Functions                                                                  */
 /******************************************************************************/
 
-void KeybInit() {
-
+void KeybInit()
+{
     // Initialize columns as output pins
     COL0_TRIS = 0;
     COL1_TRIS = 0;
@@ -54,10 +54,10 @@ void KeybInit() {
     ROW3_TRIS = 1;
 }
 
-unsigned char getKeyBlocking() {
-
-    while(1) {
-
+unsigned char getKeyBlocking()
+{
+    while(1)
+    {
         // Check column 0
         COL0_TRIS = 0;
         COL1_TRIS = 1;
@@ -108,8 +108,8 @@ unsigned char getKeyBlocking() {
     }
 }
 
-unsigned char getKeyNotBlocking() {
-
+unsigned char getKeyNotBlocking()
+{
     // Check column 0
     COL0_TRIS = 0;
     COL1_TRIS = 1;
@@ -161,8 +161,8 @@ unsigned char getKeyNotBlocking() {
     return NO_KEY_PRESSED;
 }
 
-unsigned char getMultiKeyNotBlocking(char *buttons) {
-
+unsigned char getMultiKeyNotBlocking(char *buttons)
+{
     // Check column 0
     COL0_TRIS = 0;
     COL1_TRIS = 1;

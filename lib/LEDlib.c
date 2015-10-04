@@ -37,8 +37,8 @@
 
 // Initialize LED
 // This function config. the port as output 
-void LEDInit() {
-
+void LEDInit()
+{
     LED0_TRIS = 0;
     LED1_TRIS = 0;
     LED2_TRIS = 0;
@@ -48,41 +48,29 @@ void LEDInit() {
 }
 
 // Turn on the LED selected (0-5)
-void onLED(unsigned int led) {
-
-    switch(led) {
-
-        case 0: LED0 = 1;
-        break;
-        case 1: LED1 = 1;
-        break;
-        case 2: LED2 = 1;
-        break;
-        case 3: LED3 = 1;
-        break;
-        case 4: LED4 = 1;
-        break;
-        case 5: LED5 = 1;
-        break;
+void onLED(unsigned int led)
+{
+    switch(led)
+    {
+        case 0: LED0 = 1; break;
+        case 1: LED1 = 1; break;
+        case 2: LED2 = 1; break;
+        case 3: LED3 = 1; break;
+        case 4: LED4 = 1; break;
+        case 5: LED5 = 1; break;
     }
 }
 
 // Turn off the LED selected (0-5)
-void offLED(unsigned int led) {
-
-    switch(led) {
-
-        case 0: LED0 = 0;
-        break;
-        case 1: LED1 = 0;
-        break;
-        case 2: LED2 = 0;
-        break;
-        case 3: LED3 = 0;
-        break;
-        case 4: LED4 = 0;
-        break;
-        case 5: LED5 = 0;
-        break;
+void offLED(unsigned int led)
+{
+    switch(led)
+    {
+        case 0: LED0 = 0; break;
+        case 1: LED1 = 0; break;
+        case 2: LED2 = 0; break;
+        case 3: LED3 = 0; break;
+        case 4: LED4 = 0; break;
+        case 5: LED5 = 0; break;
     }
 }

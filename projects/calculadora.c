@@ -15,10 +15,11 @@
 
 #include <p30f4011.h>
 
-int main(void) {
-
+int main(void)
+{
 	// char to save the key pressed and the last/before key
 	char c, last = -1;
+	
 	// Counter of keys pressed (to know the cursor position)
 	unsigned int cursorPosition = 0;
 
@@ -29,114 +30,91 @@ int main(void) {
 	// ALERT!
 	// LCD has 2x16 digits that we can see (without scroll)
 
-	while(1) {
-
+	while(1)
+	{
 		// Get the key pressed
 		c = getKeyNotBlocking();
 
 		// Need release the key for write the same key
-		if(c != NO_KEY_PRESSED && c != last) {
-
-			// Save key pressed
+		if(c != NO_KEY_PRESSED && c != last)
+		{
+			// Save key
 			last = c;
 
 			// Key actions
-			if(c != 9 && c != 10) {	// Pressed a writtable key
+			if(c != 9 && c != 10)
+			{
+				// Pressed a writtable key
 
-				switch(c) {
-
-					case 0:
-						LCDPrint("1");
-					break;
-					case 1:
-						LCDPrint("2");
-					break;
-					case 2:
-						LCDPrint("+");
-					break;
-					case 3:
-						LCDPrint("3");
-					break;
-					case 4:
-						LCDPrint("4");
-					break;
-					case 5:
-						LCDPrint("-");
-					break;
-					case 6:
-						LCDPrint("5");
-					break;
-					case 7:
-						LCDPrint("6");
-					break;
-					case 8:
-						LCDPrint("x");
-					break;
-					case 11:
-						LCDPrint("/");
-					break;
-
+				// Cursor managment - Limits of LCD
+				if(cursorPosition == 32)
+				{
+					// Do nothing - Out of LCD
 				}
+				else
+				{
+					// Print character
+					switch(c)
+					{
+						case 0: 	LCDPrint("1"); 	break;
+						case 1: 	LCDPrint("2"); 	break;
+						case 2: 	LCDPrint("+"); 	break;
+						case 3: 	LCDPrint("3"); 	break;
+						case 4: 	LCDPrint("4"); 	break;
+						case 5: 	LCDPrint("-"); 	break;
+						case 6: 	LCDPrint("5"); 	break;
+						case 7: 	LCDPrint("6"); 	break;
+						case 8: 	LCDPrint("x"); 	break;
+						case 11: 	LCDPrint("/"); 	break;
+					}
 
-				// Move cursor
-				if(cursorPosition == 15) {
-					// Cursor is at the end of the first line
-					// Move to second line
-					LCDMoveSecondLine();
-					// Increase cursor position
-					cursorPosition++;
-
-				} else if(cursorPosition == 31) {
-					// Cursor is at the end of the second line
-					// Move cursor back
-					LCDMoveLeft();
-
-				} else {
-					// Cursor is between extreme positions  
+					// Cursor managment - Update position
+					if(cursorPosition == 15)
+					{
+						// Cursor is at the end of the first line
+						// Move to second line
+						LCDMoveSecondLine();
+					}
 					// Increase cursor position
 					cursorPosition++;
 				}
-
-			} else if(c != 10) { // Pressed erase and go back key ( <- )
-
-				if(cursorPosition == 0) {
+			}
+			else if(c != 10)
+			{
+				// Pressed erase and go back key ( <- )
+				if(cursorPosition == 0)
+				{
 					// Cursor is at the begining of the first line
 					// Do nothing
 
-				} else if(cursorPosition == 16) {
+				}
+				else if(cursorPosition == 16)
+				{
 					// Cursor is at the begining of the second line
 					// Move cursor to the last position of the first line
 					LCDSetCursor(15);
 					// Erase content (print a white space)
 					LCDPrint(" ");
-					// Move cursor back
+					// Move cursor back and decrease cursor position
 					LCDMoveLeft();
-					// Decrease cursor position
-					cursorPosition--;
-
-				} else if(cursorPosition == 31) {
-					// Cursor is at the end of the second line
-					// Erase content (print a white space)
-					LCDPrint(" ");
-					// Move cursor back
-					LCDMoveLeft();
-					// Decrease cursor position
-					cursorPosition--;
-
-				} else {
-					// Cursor is between extreme positions
-					// Move cursor back
-					LCDMoveLeft();
-					// Erase content (print a white space)
-					LCDPrint(" ");
-					// Move cursor back
-					LCDMoveLeft();
-					// Decrease cursor position
 					cursorPosition--;
 				}
+				else
+				{
+					// Cursor is between extreme positions or at position 32
+					// Move cursor back
+					LCDMoveLeft();
+					// Erase content (print a white space)
+					LCDPrint(" ");
+					// Move cursor back and decrease cursor position
+					LCDMoveLeft();
+					cursorPosition--;
+				}
+			}
+			else
+			{
+				// Pressed clear key ( c )
 
-			} else { // Pressed clear key ( c )
-				
 				// Clear LCD
 				LCDClear();
 				// Move to home
@@ -144,8 +122,12 @@ int main(void) {
 				// Set counter of cursor position to 0 (zero)
 				cursorPosition = 0;
 			}
+		}
+		else
+		{
+			// Key non released or any key pressed
 
-		} else { // Key non released or any key pressed
+			// Save key
 			last = c;
 			// Correct when release any key
 			Delay15ms();

@@ -127,7 +127,8 @@ void LCDMoveSecondLine()
 // Writes a string to the LCD
 void LCDPrint(char *str)
 {
-	while(*str != '\0'){
+	while(*str != '\0')
+	{
 		waitLCD();
 		LCDWriteData(*str);
 		str++;
@@ -186,8 +187,8 @@ void LCDTurnOnBlinking()
 void LCDSetCursor(unsigned int position)
 {
 	// Position between LCD limits
-	if(position >= 0 && position <= 79) {
-
+	if(position >= 0 && position <= 79)
+	{
 		// Convert to hex and put always 1 in highest byte position
 		LCDWriteCmd(position | 0x80); 
 		waitLCD();
@@ -219,7 +220,8 @@ void waitLCD()
 	Delay20us();
 	Delay20us();
 
-	while(busyValue){
+	while(busyValue)
+	{
 		LCD_EN = 1;
 
 		// Data delay time
@@ -255,10 +257,10 @@ void LCDWriteCmd(char cmd)
 	LCD_DB4_TRIS = 0;
 
 	// Send first nibble
-	LCD_DB7 = (0x80 & cmd) >> 7;
-	LCD_DB6 = (0x40 & cmd) >> 6;
-	LCD_DB5 = (0x20 & cmd) >> 5;
-	LCD_DB4 = (0x10 & cmd) >> 4;
+	LCD_DB7 = (cmd & 0x80) >> 7;
+	LCD_DB6 = (cmd & 0x40) >> 6;
+	LCD_DB5 = (cmd & 0x20) >> 5;
+	LCD_DB4 = (cmd & 0x10) >> 4;
 
 	// Wait until nibble is processed
 	Delay20us(); // min 20us
@@ -272,10 +274,10 @@ void LCDWriteCmd(char cmd)
 	LCD_RW = 0;
 
 	// Send second nibble
-	LCD_DB7 = (0x08 & cmd) >> 3;
-	LCD_DB6 = (0x04 & cmd) >> 2;
-	LCD_DB5 = (0x02 & cmd) >> 1;
-	LCD_DB4 = (0x01 & cmd);
+	LCD_DB7 = (cmd & 0x08) >> 3;
+	LCD_DB6 = (cmd & 0x04) >> 2;
+	LCD_DB5 = (cmd & 0x02) >> 1;
+	LCD_DB4 = (cmd & 0x01);
 
 	// Wait until nibble is processed
 	Delay20us(); // min 20us
@@ -305,10 +307,10 @@ void LCDWriteNibbleCmd(char cmd)
 	LCD_DB4_TRIS = 0;
 
 	// Send nibble
-	LCD_DB7 = (0x80 & cmd) >> 7;
-	LCD_DB6 = (0x40 & cmd) >> 6;
-	LCD_DB5 = (0x20 & cmd) >> 5;
-	LCD_DB4 = (0x10 & cmd) >> 4;
+	LCD_DB7 = (cmd & 0x80) >> 7;
+	LCD_DB6 = (cmd & 0x40) >> 6;
+	LCD_DB5 = (cmd & 0x20) >> 5;
+	LCD_DB4 = (cmd & 0x10) >> 4;
 
 	// Wait until nibble is processed
 	Delay20us(); // min 20us
@@ -338,10 +340,10 @@ void LCDWriteData(char data)
 	LCD_DB4_TRIS = 0;
 
 	// Send first nibble
-	LCD_DB7 = (0x80 & data) >> 7;
-	LCD_DB6 = (0x40 & data) >> 6;
-	LCD_DB5 = (0x20 & data) >> 5;
-	LCD_DB4 = (0x10 & data) >> 4;
+	LCD_DB7 = (data & 0x80) >> 7;
+	LCD_DB6 = (data & 0x40) >> 6;
+	LCD_DB5 = (data & 0x20) >> 5;
+	LCD_DB4 = (data & 0x10) >> 4;
 
 	// Wait until nibble is processed
 	Delay20us(); // min 20us
@@ -355,10 +357,10 @@ void LCDWriteData(char data)
 	LCD_RW = 0;
 
 	// Send second nibble
-	LCD_DB7 = (0x08 & data) >> 3;
-	LCD_DB6 = (0x04 & data) >> 2;
-	LCD_DB5 = (0x02 & data) >> 1;
-	LCD_DB4 = (0x01 & data);
+	LCD_DB7 = (data & 0x08) >> 3;
+	LCD_DB6 = (data & 0x04) >> 2;
+	LCD_DB5 = (data & 0x02) >> 1;
+	LCD_DB4 = (data & 0x01);
 
 	// Wait until nibble is processed
 	Delay20us(); // min 20us

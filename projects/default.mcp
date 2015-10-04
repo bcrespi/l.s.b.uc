@@ -54,11 +54,11 @@ file_006=no
 file_007=no
 file_008=no
 [FILE_INFO]
-file_000=calculadora.c
-file_001=C:\git\l.s.b.uc\lib\delay.s
-file_002=C:\git\l.s.b.uc\lib\KEYBlib.c
-file_003=C:\git\l.s.b.uc\lib\LCDlib.c
-file_004=C:\git\l.s.b.uc\lib\LEDlib.c
+file_000=C:\git\l.s.b.uc\lib\delay.s
+file_001=C:\git\l.s.b.uc\lib\KEYBlib.c
+file_002=C:\git\l.s.b.uc\lib\LCDlib.c
+file_003=C:\git\l.s.b.uc\lib\LEDlib.c
+file_004=calculadora.c
 file_005=C:\git\l.s.b.uc\lib\delay.h
 file_006=C:\git\l.s.b.uc\lib\KEYBlib.h
 file_007=C:\git\l.s.b.uc\lib\LCDlib.h

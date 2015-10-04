@@ -2,92 +2,92 @@
 MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
 Version=1.0
 [File000]
-Location=C:\git\l.s.b.uc\p2-calculadora\calculadora.o
-Folder=Intermediary
-DeviceName=dsPIC30F4011
-LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
-LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
-LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
-PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\git\l.s.b.uc\lib||$(LIBDIR)||$(LKRDIR)||
-SOLK=<src>|calculadora.c|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c||<obj>||<lib>||<lkr>||
-SuiteArgsString=
-ToolArgsString=-g -Wall
-TraceCmdString=
-DebugOptions=-D__DEBUG
-[File001]
-Location=C:\git\l.s.b.uc\p2-calculadora\delay.o
+Location=C:\git\l.s.b.uc\projects\delay.o
 Folder=Intermediary
 DeviceName=dsPIC30F4011
 LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-as.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\git\l.s.b.uc\lib||$(LIBDIR)||$(LKRDIR)||
-SOLK=<src>|calculadora.c|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c|calculadora.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g
 TraceCmdString=
 DebugOptions=--defsym=__DEBUG=1
-[File002]
-Location=C:\git\l.s.b.uc\p2-calculadora\KEYBlib.o
+[File001]
+Location=C:\git\l.s.b.uc\projects\KEYBlib.o
 Folder=Intermediary
 DeviceName=dsPIC30F4011
 LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\git\l.s.b.uc\lib||$(LIBDIR)||$(LKRDIR)||
-SOLK=<src>|calculadora.c|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c|calculadora.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File002]
+Location=C:\git\l.s.b.uc\projects\LCDlib.o
+Folder=Intermediary
+DeviceName=dsPIC30F4011
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\git\l.s.b.uc\lib||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c|calculadora.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
 DebugOptions=-D__DEBUG
 [File003]
-Location=C:\git\l.s.b.uc\p2-calculadora\LCDlib.o
+Location=C:\git\l.s.b.uc\projects\LEDlib.o
 Folder=Intermediary
 DeviceName=dsPIC30F4011
 LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\git\l.s.b.uc\lib||$(LIBDIR)||$(LKRDIR)||
-SOLK=<src>|calculadora.c|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c|calculadora.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
 DebugOptions=-D__DEBUG
 [File004]
-Location=C:\git\l.s.b.uc\p2-calculadora\LEDlib.o
+Location=C:\git\l.s.b.uc\projects\calculadora.o
 Folder=Intermediary
 DeviceName=dsPIC30F4011
 LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\git\l.s.b.uc\lib||$(LIBDIR)||$(LKRDIR)||
-SOLK=<src>|calculadora.c|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c|calculadora.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
 DebugOptions=-D__DEBUG
 [File005]
-Location=C:\git\l.s.b.uc\p2-calculadora\calculadora.cof
+Location=C:\git\l.s.b.uc\projects\default.cof
 Folder=Output
 DeviceName=dsPIC30F4011
 LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\git\l.s.b.uc\lib||$(LIBDIR)||$(LKRDIR)||
-SOLK=<src>|calculadora.c|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c|calculadora.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
 TraceCmdString=
 DebugOptions=--defsym=__MPLAB_DEBUG=1
 [File006]
-Location=C:\git\l.s.b.uc\p2-calculadora\calculadora.hex
+Location=C:\git\l.s.b.uc\projects\default.hex
 Folder=Output
 DeviceName=dsPIC30F4011
 LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\git\l.s.b.uc\lib||$(LIBDIR)||$(LKRDIR)||
-SOLK=<src>|calculadora.c|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|C:\git\l.s.b.uc\lib\delay.s|C:\git\l.s.b.uc\lib\KEYBlib.c|C:\git\l.s.b.uc\lib\LCDlib.c|C:\git\l.s.b.uc\lib\LEDlib.c|calculadora.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
 TraceCmdString=
