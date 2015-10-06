@@ -184,6 +184,8 @@ void LCDTurnOnBlinking()
 	waitLCD();
 }
 
+// Move LCD cursor to specified position
+// Only for LCD with 2 lines and 40 positions x line
 void LCDSetCursor(unsigned int position)
 {
 	// Position between LCD limits
@@ -193,6 +195,29 @@ void LCDSetCursor(unsigned int position)
 		LCDWriteCmd(position | 0x80); 
 		waitLCD();
 	}	
+}
+
+// Store char pattern
+void LCDStoreCharPattern(char n, char *pattern)
+{
+	// Change AC content and point to CGRAM
+	LCDWriteCmd((n * 8) | 0x40);
+
+	// Write step by step the 8 line with the pattern
+	unsigned int i;
+	for(i = 0; i < 8; i++)
+	{
+		waitLCD();
+		LCDWriteData(pattern[i]);
+	}
+	waitLCD();
+}
+
+// Show char pattern
+void LCDShowCharPattern(char n)
+{
+	LCDWriteData(n);
+	waitLCD();
 }
 
 
