@@ -3,7 +3,7 @@
 /* Description: Practica guiada 2                                             */
 /*				Interfaz de una calculadora                                   */
 /*                                                                            */
-/* Authors: Bartomeu Crespi Jimenez & Francesc Bisquerra Castell              */
+/* Authors: Bartomeu Crespi Jimenez                                           */
 /*                                                                            */
 /******************************************************************************/
 
@@ -40,43 +40,19 @@ int main(void)
 	 *	- Plug				{0x0A, 0x0A, 0x1F, 0x11, 0x1B, 0x0E, 0x04, 0x04}
 	 */
 
-	char skull[] = {0x04, 0x0E, 0x15, 0x1B, 0x0E, 0x15, 0x0A, 0x00};
-	char bomb[] = {0x01, 0x01, 0x0E, 0x1F, 0x1F, 0x1F, 0x0E, 0x00};
+	char heart[] = {0x00, 0x0A, 0x1F, 0x1F, 0x0E, 0x04, 0x00, 0x00};
+	char plug[] = {0x0A, 0x0A, 0x1F, 0x11, 0x1B, 0x0E, 0x04, 0x04};
 
 	// Save pattern
-	LCDStoreCharPattern(0, skull);
-	LCDStoreCharPattern(1, bomb);
-
-	// Points to DDRAM
-	LCDMoveHome();
+	LCDStoreCharPattern(0, heart);
+	LCDStoreCharPattern(1, plug);
 
 	// Personalized start message with patterns
 	// Show pattern
+	LCDPrint(" It's magic! ");
 	LCDShowCharPattern(0);
-	LCDPrint(" ");
-	LCDShowCharPattern(0);
-	LCDPrint(" ");
-	LCDShowCharPattern(0);
-	LCDPrint(" ");
-	LCDShowCharPattern(0);
-	LCDPrint(" ");
-	LCDShowCharPattern(0);
-	LCDPrint(" ");
-	LCDShowCharPattern(0);
-	LCDPrint(" ");
-	LCDShowCharPattern(0);
-	LCDPrint(" ");
-	LCDShowCharPattern(0);
-
 	LCDMoveSecondLine();
-
-	LCDPrint("failure ");
-	LCDShowCharPattern(1);
-	LCDPrint(" ");
-	LCDShowCharPattern(1);
-	LCDPrint(" ");
-	LCDShowCharPattern(1);
-	LCDPrint(" ");
+	LCDPrint("Don't unplug! ");
 	LCDShowCharPattern(1);
 
 	cursorPosition = 31;

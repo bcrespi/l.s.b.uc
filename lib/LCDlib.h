@@ -37,10 +37,9 @@ void LCDTurnOnUnderline();
 void LCDTurnOnBlinking();
 
 // Move LCD cursor to specified position
-// Only for LCD with 2 lines and 40 positions x line
-void LCDSetCursor(unsigned int position);
+void LCDSetCursor(char position);
 
 // Store char pattern
-void LCDStoreCharPattern(char n, char *pattern);
+void LCDStoreCharPattern(char position, char *pattern);
 // Show char pattern
-void LCDShowCharPattern(char n);
+void LCDShowCharPattern(char position);

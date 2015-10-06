@@ -185,38 +185,36 @@ void LCDTurnOnBlinking()
 }
 
 // Move LCD cursor to specified position
-// Only for LCD with 2 lines and 40 positions x line
-void LCDSetCursor(unsigned int position)
+void LCDSetCursor(char position)
 {
-	// Position between LCD limits
-	if(position >= 0 && position <= 79)
-	{
-		// Convert to hex and put always 1 in highest byte position
-		LCDWriteCmd(position | 0x80); 
-		waitLCD();
-	}	
-}
-
-// Store char pattern
-void LCDStoreCharPattern(char n, char *pattern)
-{
-	// Change AC content and point to CGRAM
-	LCDWriteCmd((n * 8) | 0x40);
-
-	// Write step by step the 8 line with the pattern
-	unsigned int i;
-	for(i = 0; i < 8; i++)
-	{
-		waitLCD();
-		LCDWriteData(pattern[i]);
-	}
+	// Put always 1 in highest byte position (Set DDRAM address)
+	LCDWriteCmd(position | 0x80); 
 	waitLCD();
 }
 
-// Show char pattern
-void LCDShowCharPattern(char n)
+// Store char pattern
+void LCDStoreCharPattern(char position, char *pattern)
 {
-	LCDWriteData(n);
+	// Change AC content and point to CGRAM
+	LCDWriteCmd((position * 8) | 0x40);
+	waitLCD();
+
+	// Write step by step the 8 lines with the pattern
+	unsigned int i;
+	for(i = 0; i < 8; i++)
+	{
+		LCDWriteData(pattern[i]);
+		waitLCD();
+	}
+
+	// Points to DDRAM
+	LCDMoveHome();
+}
+
+// Show char pattern
+void LCDShowCharPattern(char position)
+{
+	LCDWriteData(position);
 	waitLCD();
 }
 
