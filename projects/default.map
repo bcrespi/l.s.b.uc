@@ -1,4 +1,4 @@
-Microchip Technology Inc, vv3_31 (A) 
+Microchip Technology Inc, vv3_31 (A) «
 
 Tool Name:
   c:\program files (x86)\microchip\mplab c30\bin\bin\..\bin/pic30-coff-ld.exe
@@ -49,11 +49,11 @@ Program Memory  [Origin = 0x100, Length = 0x7efe]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x100                0x94            0xde  (222)
-.const                       0x194                0x16            0x21  (33)
-.text                        0x1aa               0x848           0xc6c  (3180)
-.dinit                       0x9f2                 0x2             0x3  (3)
+.const                       0x194                0x30            0x48  (72)
+.text                        0x1c4               0x90e           0xd95  (3477)
+.dinit                       0xad2                 0x2             0x3  (3)
 
-                     Total program memory used (bytes):          0xd6e  (3438) 7%
+                     Total program memory used (bytes):          0xebe  (3774) 7%
 
 
 Data Memory  [Origin = 0x800, Length = 0x800]
@@ -81,78 +81,82 @@ External Symbols in Program Memory (by address):
                   0x000132                  __data_init
                   0x000132                  __data_init_standard
                   0x000190                  __DefaultInterrupt
-                  0x0001aa                  _LCDInit
-                  0x0001f0                  _LCDClear
-                  0x0001fc                  _LCDMoveHome
-                  0x000208                  _LCDMoveFirstLine
-                  0x000214                  _LCDMoveSecondLine
-                  0x000220                  _LCDPrint
-                  0x00023c                  _LCDMoveLeft
-                  0x000248                  _LCDMoveRight
-                  0x000254                  _LCDScrollLeft
-                  0x000260                  _LCDScrollRight
-                  0x00026c                  _LCDHideCursor
-                  0x000278                  _LCDTurnOnUnderline
-                  0x000284                  _LCDTurnOnBlinking
-                  0x000290                  _LCDSetCursor
-                  0x0002aa                  _waitLCD
-                  0x0002e8                  _LCDWriteCmd
-                  0x0003de                  _LCDWriteNibbleCmd
-                  0x000468                  _LCDWriteData
-                  0x000562                  _KeybInit
-                  0x000576                  _getKeyBlocking
-                  0x00064e                  _getKeyNotBlocking
-                  0x00072c                  _getMultiKeyNotBlocking
-                  0x00081a                  _main
-                  0x00090a                  _LEDInit
-                  0x00091c                  _onLED
-                  0x00096c                  _offLED
-                  0x0009bc                  _Delay3Tcy
-                  0x0009be                  _Delay10us
-                  0x0009c6                  _Delay20us
-                  0x0009ce                  _Delay150us
-                  0x0009d6                  _Delay5ms
-                  0x0009de                  _Delay15ms
+                  0x0001c4                  _LCDInit
+                  0x00020a                  _LCDClear
+                  0x000216                  _LCDMoveHome
+                  0x000222                  _LCDMoveFirstLine
+                  0x00022e                  _LCDMoveSecondLine
+                  0x00023a                  _LCDPrint
+                  0x000256                  _LCDMoveLeft
+                  0x000262                  _LCDMoveRight
+                  0x00026e                  _LCDScrollLeft
+                  0x00027a                  _LCDScrollRight
+                  0x000286                  _LCDHideCursor
+                  0x000292                  _LCDTurnOnUnderline
+                  0x00029e                  _LCDTurnOnBlinking
+                  0x0002aa                  _LCDSetCursor
+                  0x0002c4                  _LCDStoreCharPattern
+                  0x0002f8                  _LCDShowCharPattern
+                  0x000306                  _waitLCD
+                  0x000344                  _LCDWriteCmd
+                  0x00043a                  _LCDWriteNibbleCmd
+                  0x0004c4                  _LCDWriteData
+                  0x0005be                  _KeybInit
+                  0x0005d2                  _getKeyBlocking
+                  0x0006aa                  _getKeyNotBlocking
+                  0x000788                  _getMultiKeyNotBlocking
+                  0x000876                  _main
+                  0x0009ea                  _LEDInit
+                  0x0009fc                  _onLED
+                  0x000a4c                  _offLED
+                  0x000a9c                  _Delay3Tcy
+                  0x000a9e                  _Delay10us
+                  0x000aa6                  _Delay20us
+                  0x000aae                  _Delay150us
+                  0x000ab6                  _Delay5ms
+                  0x000abe                  _Delay15ms
 
 External Symbols in Program Memory (by name):
 
-                  0x0009be                  _Delay10us
-                  0x0009ce                  _Delay150us
-                  0x0009de                  _Delay15ms
-                  0x0009c6                  _Delay20us
-                  0x0009bc                  _Delay3Tcy
-                  0x0009d6                  _Delay5ms
-                  0x000562                  _KeybInit
-                  0x0001f0                  _LCDClear
-                  0x00026c                  _LCDHideCursor
-                  0x0001aa                  _LCDInit
-                  0x000208                  _LCDMoveFirstLine
-                  0x0001fc                  _LCDMoveHome
-                  0x00023c                  _LCDMoveLeft
-                  0x000248                  _LCDMoveRight
-                  0x000214                  _LCDMoveSecondLine
-                  0x000220                  _LCDPrint
-                  0x000254                  _LCDScrollLeft
-                  0x000260                  _LCDScrollRight
-                  0x000290                  _LCDSetCursor
-                  0x000284                  _LCDTurnOnBlinking
-                  0x000278                  _LCDTurnOnUnderline
-                  0x0002e8                  _LCDWriteCmd
-                  0x000468                  _LCDWriteData
-                  0x0003de                  _LCDWriteNibbleCmd
-                  0x00090a                  _LEDInit
+                  0x000a9e                  _Delay10us
+                  0x000aae                  _Delay150us
+                  0x000abe                  _Delay15ms
+                  0x000aa6                  _Delay20us
+                  0x000a9c                  _Delay3Tcy
+                  0x000ab6                  _Delay5ms
+                  0x0005be                  _KeybInit
+                  0x00020a                  _LCDClear
+                  0x000286                  _LCDHideCursor
+                  0x0001c4                  _LCDInit
+                  0x000222                  _LCDMoveFirstLine
+                  0x000216                  _LCDMoveHome
+                  0x000256                  _LCDMoveLeft
+                  0x000262                  _LCDMoveRight
+                  0x00022e                  _LCDMoveSecondLine
+                  0x00023a                  _LCDPrint
+                  0x00026e                  _LCDScrollLeft
+                  0x00027a                  _LCDScrollRight
+                  0x0002aa                  _LCDSetCursor
+                  0x0002f8                  _LCDShowCharPattern
+                  0x0002c4                  _LCDStoreCharPattern
+                  0x00029e                  _LCDTurnOnBlinking
+                  0x000292                  _LCDTurnOnUnderline
+                  0x000344                  _LCDWriteCmd
+                  0x0004c4                  _LCDWriteData
+                  0x00043a                  _LCDWriteNibbleCmd
+                  0x0009ea                  _LEDInit
                   0x000190                  __DefaultInterrupt
                   0x000132                  __data_init
                   0x000132                  __data_init_standard
                   0x000122                  __psv_init
                   0x000100                  __resetPRI
-                  0x000576                  _getKeyBlocking
-                  0x00064e                  _getKeyNotBlocking
-                  0x00072c                  _getMultiKeyNotBlocking
-                  0x00081a                  _main
-                  0x00096c                  _offLED
-                  0x00091c                  _onLED
-                  0x0002aa                  _waitLCD
+                  0x0005d2                  _getKeyBlocking
+                  0x0006aa                  _getKeyNotBlocking
+                  0x000788                  _getMultiKeyNotBlocking
+                  0x000876                  _main
+                  0x000a4c                  _offLED
+                  0x0009fc                  _onLED
+                  0x000306                  _waitLCD
 
 Memory Configuration
 
@@ -1161,47 +1165,49 @@ __c30_signature
  __c30_signature
                   0x00001e          0x6 c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib\libpic30-coff.a(data_init_standard.o)
 
-.const              0x8194         0x16 load address 0x000194  
- .const             0x8194         0x16 calculadora.o
+.const              0x8194         0x30 load address 0x000194  
+ .const             0x8194         0x30 calculadora.o
 
-.text             0x0001aa        0x848
- .text            0x0001aa        0x3b8 LCDlib.o
-                  0x0001aa                  LCDInit
-                  0x0001f0                  LCDClear
-                  0x0001fc                  LCDMoveHome
-                  0x000208                  LCDMoveFirstLine
-                  0x000214                  LCDMoveSecondLine
-                  0x000220                  LCDPrint
-                  0x00023c                  LCDMoveLeft
-                  0x000248                  LCDMoveRight
-                  0x000254                  LCDScrollLeft
-                  0x000260                  LCDScrollRight
-                  0x00026c                  LCDHideCursor
-                  0x000278                  LCDTurnOnUnderline
-                  0x000284                  LCDTurnOnBlinking
-                  0x000290                  LCDSetCursor
-                  0x0002aa                  waitLCD
-                  0x0002e8                  LCDWriteCmd
-                  0x0003de                  LCDWriteNibbleCmd
-                  0x000468                  LCDWriteData
- .text            0x000562        0x2b8 KEYBlib.o
-                  0x000562                  KeybInit
-                  0x000576                  getKeyBlocking
-                  0x00064e                  getKeyNotBlocking
-                  0x00072c                  getMultiKeyNotBlocking
- .text            0x00081a         0xf0 calculadora.o
-                  0x00081a                  main
- .text            0x00090a         0xb2 LEDlib.o
-                  0x00090a                  LEDInit
-                  0x00091c                  onLED
-                  0x00096c                  offLED
- .text            0x0009bc         0x36 delay.o
-                  0x0009bc                  Delay3Tcy
-                  0x0009be                  Delay10us
-                  0x0009c6                  Delay20us
-                  0x0009ce                  Delay150us
-                  0x0009d6                  Delay5ms
-                  0x0009de                  Delay15ms
+.text             0x0001c4        0x90e
+ .text            0x0001c4        0x3fa LCDlib.o
+                  0x0001c4                  LCDInit
+                  0x00020a                  LCDClear
+                  0x000216                  LCDMoveHome
+                  0x000222                  LCDMoveFirstLine
+                  0x00022e                  LCDMoveSecondLine
+                  0x00023a                  LCDPrint
+                  0x000256                  LCDMoveLeft
+                  0x000262                  LCDMoveRight
+                  0x00026e                  LCDScrollLeft
+                  0x00027a                  LCDScrollRight
+                  0x000286                  LCDHideCursor
+                  0x000292                  LCDTurnOnUnderline
+                  0x00029e                  LCDTurnOnBlinking
+                  0x0002aa                  LCDSetCursor
+                  0x0002c4                  LCDStoreCharPattern
+                  0x0002f8                  LCDShowCharPattern
+                  0x000306                  waitLCD
+                  0x000344                  LCDWriteCmd
+                  0x00043a                  LCDWriteNibbleCmd
+                  0x0004c4                  LCDWriteData
+ .text            0x0005be        0x2b8 KEYBlib.o
+                  0x0005be                  KeybInit
+                  0x0005d2                  getKeyBlocking
+                  0x0006aa                  getKeyNotBlocking
+                  0x000788                  getMultiKeyNotBlocking
+ .text            0x000876        0x174 calculadora.o
+                  0x000876                  main
+ .text            0x0009ea         0xb2 LEDlib.o
+                  0x0009ea                  LEDInit
+                  0x0009fc                  onLED
+                  0x000a4c                  offLED
+ .text            0x000a9c         0x36 delay.o
+                  0x000a9c                  Delay3Tcy
+                  0x000a9e                  Delay10us
+                  0x000aa6                  Delay20us
+                  0x000aae                  Delay150us
+                  0x000ab6                  Delay5ms
+                  0x000abe                  Delay15ms
 
-.dinit            0x0009f2          0x2
- .dinit           0x0009f2          0x2 data_init
+.dinit            0x000ad2          0x2
+ .dinit           0x000ad2          0x2 data_init
