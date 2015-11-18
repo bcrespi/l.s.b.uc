@@ -2,7 +2,7 @@
 /*                                                                            */
 /* Description: LCD library (source)                                          */
 /*                                                                            */
-/* Authors: Bartomeu Crespi Jimenez & Francesc Bisquerra Castell              */
+/* Authors: Bartomeu Crespi Jimenez                                           */
 /*                                                                            */
 /******************************************************************************/
 
@@ -12,7 +12,7 @@
 #include <p30f4011.h>
 
 /******************************************************************************/
-/* Pre-processor directives                                                   */
+/* Global variable declarations                                               */
 /******************************************************************************/
 
 #define LCD_EN_TRIS  TRISBbits.TRISB6
@@ -35,7 +35,7 @@
 
 
 /******************************************************************************/
-/* Prototypes of additional functions										 */
+/* Pre-declarared functions                                                   */
 /******************************************************************************/
 
 void waitLCD();

@@ -2,7 +2,7 @@
 /*                                                                            */
 /* Description: keyboard library (source)                                     */
 /*                                                                            */
-/* Authors: Bartomeu Crespi Jimenez & Francesc Bisquerra Castell              */
+/* Authors: Bartomeu Crespi Jimenez                                           */
 /*                                                                            */
 /******************************************************************************/
 
@@ -12,7 +12,7 @@
 #include <p30F4011.h>
 
 /******************************************************************************/
-/* Pre-processor directives                                                   */
+/* Global variable declarations                                               */
 /******************************************************************************/
 
 // Keyboard config. registers (I/O)
@@ -54,8 +54,13 @@ void KeybInit()
     ROW3_TRIS = 1;
 }
 
-unsigned char getKeyBlocking()
+char getKeyBlocking()
 {
+	ROW0_TRIS = 1;
+	ROW1_TRIS = 1;
+	ROW2_TRIS = 1;
+	ROW3_TRIS = 1;
+
     while(1)
     {
         // Check column 0
@@ -108,8 +113,13 @@ unsigned char getKeyBlocking()
     }
 }
 
-unsigned char getKeyNotBlocking()
+char getKeyNotBlocking()
 {
+	ROW0_TRIS = 1;
+	ROW1_TRIS = 1;
+	ROW2_TRIS = 1;
+	ROW3_TRIS = 1;
+
     // Check column 0
     COL0_TRIS = 0;
     COL1_TRIS = 1;
@@ -161,7 +171,7 @@ unsigned char getKeyNotBlocking()
     return NO_KEY_PRESSED;
 }
 
-unsigned char getMultiKeyNotBlocking(char *buttons)
+void getMultiKeyNotBlocking(char *keys)
 {
     // Check column 0
     COL0_TRIS = 0;
@@ -174,10 +184,10 @@ unsigned char getMultiKeyNotBlocking(char *buttons)
     Delay10us();
 
     // Check row values
-    if(ROW0 == 0) buttons[0] = 1;
-    if(ROW1 == 0) buttons[3] = 1;
-    if(ROW2 == 0) buttons[6] = 1;;
-    if(ROW3 == 0) buttons[9] = 1;;
+    if(ROW0 == 0) keys[0] = 1;
+    if(ROW1 == 0) keys[3] = 1;
+    if(ROW2 == 0) keys[6] = 1;
+    if(ROW3 == 0) keys[9] = 1;
 
     // Check column 1
     COL0_TRIS = 1;
@@ -190,10 +200,10 @@ unsigned char getMultiKeyNotBlocking(char *buttons)
     Delay10us();
 
     // Check row values
-    if(ROW0 == 0) buttons[1] = 1;
-    if(ROW1 == 0) buttons[4] = 1;
-    if(ROW2 == 0) buttons[7] = 1;
-    if(ROW3 == 0) buttons[10] = 1;
+    if(ROW0 == 0) keys[1] = 1;
+    if(ROW1 == 0) keys[4] = 1;
+    if(ROW2 == 0) keys[7] = 1;
+    if(ROW3 == 0) keys[10] = 1;
 
     // Check column 2
     COL0_TRIS = 1;
@@ -206,10 +216,8 @@ unsigned char getMultiKeyNotBlocking(char *buttons)
     Delay10us();
 
     // Check row values
-    if(ROW0 == 0) buttons[2] = 1;
-    if(ROW1 == 0) buttons[5] = 1;
-    if(ROW2 == 0) buttons[8] = 1;
-    if(ROW3 == 0) buttons[11] = 1;
-
-    return NO_KEY_PRESSED;
+    if(ROW0 == 0) keys[2] = 1;
+    if(ROW1 == 0) keys[5] = 1;
+    if(ROW2 == 0) keys[8] = 1;
+    if(ROW3 == 0) keys[11] = 1;
 }

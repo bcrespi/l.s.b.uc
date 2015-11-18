@@ -2,8 +2,12 @@
 /*                                                                            */
 /* Description: LCD library (library)                                         */
 /*                                                                            */
-/* Authors: Bartomeu Crespi Jimenez & Francesc Bisquerra Castell              */
+/* Authors: Bartomeu Crespi Jimenez                                           */
 /*                                                                            */
+/******************************************************************************/
+
+/******************************************************************************/
+/* Functions                                                                  */
 /******************************************************************************/
 
 // Initialize LCD

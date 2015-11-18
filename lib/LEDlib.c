@@ -2,7 +2,7 @@
 /*                                                                            */
 /* Description: LED library (source)                                          */
 /*                                                                            */
-/* Authors: Bartomeu Crespi Jimenez & Francesc Bisquerra Castell              */
+/* Authors: Bartomeu Crespi Jimenez                                           */
 /*                                                                            */
 /******************************************************************************/
 
@@ -11,7 +11,7 @@
 #include <p30F4011.h>
 
 /******************************************************************************/
-/* Pre-processor directives                                                   */
+/* Global variable declarations                                               */
 /******************************************************************************/
 
 // LED config registers (I/O)
@@ -72,5 +72,18 @@ void offLED(unsigned int led)
         case 3: LED3 = 0; break;
         case 4: LED4 = 0; break;
         case 5: LED5 = 0; break;
+    }
+}
+
+void switchLED(unsigned int led)
+{
+	switch(led)
+    {
+        case 0: LED0 = ((LED0 + 1) % 2); break;
+        case 1: LED1 = ((LED1 + 1) % 2); break;
+        case 2: LED2 = ((LED2 + 1) % 2); break;
+        case 3: LED3 = ((LED3 + 1) % 2); break;
+        case 4: LED4 = ((LED4 + 1) % 2); break;
+        case 5: LED5 = ((LED5 + 1) % 2); break;
     }
 }

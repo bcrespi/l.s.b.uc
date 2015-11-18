@@ -2,18 +2,28 @@
 /*                                                                            */
 /* Description: keyboard library (header)                                     */
 /*                                                                            */
-/* Authors: Bartomeu Crespi Jimenez & Francesc Bisquerra Castell              */
+/* Authors: Bartomeu Crespi Jimenez                                           */
 /*                                                                            */
 /******************************************************************************/
 
+/******************************************************************************/
+/* Global variable declarations                                               */
+/******************************************************************************/
+
 #define NO_KEY_PRESSED	-1
+
+/******************************************************************************/
+/* Functions                                                                  */
+/******************************************************************************/
 
 // Initialize LCD
 void KeybInit();
 
 // Get key pressed (block until key is pressed)
-unsigned char getKeyBlocking();
+char getKeyBlocking();
+
 // Get key pressed (no bloking)
-unsigned char getKeyNotBlocking();
+char getKeyNotBlocking();
+
 // Get keys pressed (no bloking)
-unsigned char getMultiKeyNotBlocking();
+void getMultiKeyNotBlocking(char *keys);
