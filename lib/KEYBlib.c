@@ -35,7 +35,6 @@
 #define ROW2       PORTDbits.RD2
 #define ROW3       PORTDbits.RD3
 
-
 /******************************************************************************/
 /* Functions                                                                  */
 /******************************************************************************/
@@ -56,11 +55,6 @@ void KeybInit()
 
 char getKeyBlocking()
 {
-	ROW0_TRIS = 1;
-	ROW1_TRIS = 1;
-	ROW2_TRIS = 1;
-	ROW3_TRIS = 1;
-
     while(1)
     {
         // Check column 0
@@ -115,11 +109,6 @@ char getKeyBlocking()
 
 char getKeyNotBlocking()
 {
-	ROW0_TRIS = 1;
-	ROW1_TRIS = 1;
-	ROW2_TRIS = 1;
-	ROW3_TRIS = 1;
-
     // Check column 0
     COL0_TRIS = 0;
     COL1_TRIS = 1;

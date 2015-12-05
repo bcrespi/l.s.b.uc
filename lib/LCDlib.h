@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*                                                                            */
-/* Description: LCD library (library)                                         */
+/* Description: LCD library (header)                                          */
 /*                                                                            */
 /* Authors: Bartomeu Crespi Jimenez                                           */
 /*                                                                            */

@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*                                                                            */
-/* Description: Timer library (library)                                       */
+/* Description: Timer library (header)                                        */
 /*                                                                            */
 /* Authors: Bartomeu Crespi Jimenez                                           */
 /*                                                                            */
