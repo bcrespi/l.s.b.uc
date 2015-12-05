@@ -15,6 +15,19 @@
 
 #include <p30f4011.h>
 
+/******************************************************************************/
+/* Configuration words                                                        */
+/******************************************************************************/
+
+_FOSC(CSW_FSCM_OFF & EC_PLL16);
+_FWDT(WDT_OFF);
+_FBORPOR(MCLR_EN & PBOR_OFF & PWRT_OFF);
+_FGS(CODE_PROT_OFF);
+
+/******************************************************************************/
+/* Functions                                                                  */
+/******************************************************************************/
+
 int main(void)
 {
 	// char to save the key pressed and the last/before key
@@ -116,7 +129,6 @@ int main(void)
 				{
 					// Cursor is at the begining of the first line
 					// Do nothing
-
 				}
 				else if(cursorPosition == 16)
 				{

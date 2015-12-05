@@ -1,4 +1,4 @@
-Microchip Technology Inc, vv3_31 (A) 
+Microchip Technology Inc, vv3_31 (A) Ç
 
 Tool Name:
   c:\program files (x86)\microchip\mplab c30\bin\bin\..\bin/pic30-coff-ld.exe
@@ -25,6 +25,7 @@ Command:
   LCDlib.o \
   LEDlib.o \
   TIMERlib.o \
+  CANlib.o \
   p1-teclado_leds.o \
   -Tp30F4011.gld.00 \
   --defsym=__MPLAB_BUILD=1 \
@@ -45,15 +46,35 @@ c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib\libpic30-coff.a(dat
                               c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib\libpic30-coff.a(crt0_standard.o) (_data_init_standard)
 
 
+Selected CodeGuard Options:
+  FGS:GWRP:GWRP_OFF
+  FGS:GCP:CODE_PROT_OFF
+
+CodeGuard FLASH Memory:
+  boot    (none)
+  secure  (none)
+  general 0x100 to 0x7ffc
+
+CodeGuard RAM Memory:
+  general 0x800 to 0xfff
+  secure  (none)
+  boot    (none)
+
+CodeGuard EEPROM Memory:
+  general 0x7ffc00 to 0x7fffff
+  secure  (none)
+  boot    (none)
+
+
 Program Memory  [Origin = 0x100, Length = 0x7efe]
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x100                0x94            0xde  (222)
-.text                        0x194               0xb12          0x109b  (4251)
-.dinit                       0xca6                0x1e            0x2d  (45)
+.text                        0x194               0xc28          0x123c  (4668)
+.dinit                       0xdbc                0x1e            0x2d  (45)
 
-                     Total program memory used (bytes):         0x11a6  (4518) 9%
+                     Total program memory used (bytes):         0x1347  (4935) 10%
 
 
 Data Memory  [Origin = 0x800, Length = 0x800]
@@ -100,8 +121,8 @@ External Symbols in Program Memory (by address):
 
                   0x000100                  __resetPRI
                   0x000122                  __psv_init
-                  0x000132                  __data_init
                   0x000132                  __data_init_standard
+                  0x000132                  __data_init
                   0x000190                  __DefaultInterrupt
                   0x000194                  _LCDInit
                   0x0001da                  _LCDClear
@@ -125,36 +146,43 @@ External Symbols in Program Memory (by address):
                   0x00048c                  _LCDWriteData
                   0x000586                  _KeybInit
                   0x00059a                  _getKeyBlocking
-                  0x00067a                  _getKeyNotBlocking
-                  0x000760                  _getMultiKeyNotBlocking
-                  0x00084c                  _main
-                  0x00098e                  _sequenceLine
-                  0x0009d2                  _sequenceColumn
-                  0x000a16                  _imCrazyAndTurnAllOff
-                  0x000a32                  _LEDInit
-                  0x000a44                  _onLED
-                  0x000a94                  _offLED
-                  0x000ae4                  _switchLED
-                  0x000c06                  _Timer1Init
-                  0x000c4c                  _Timer1Start
-                  0x000c54                  _Timer1Pause
-                  0x000c5c                  _Timer1Stop
-                  0x000c68                  _TimerClearInt
-                  0x000c70                  _Delay3Tcy
-                  0x000c72                  _Delay10us
-                  0x000c7a                  _Delay20us
-                  0x000c82                  _Delay150us
-                  0x000c8a                  _Delay5ms
-                  0x000c92                  _Delay15ms
+                  0x000672                  _getKeyNotBlocking
+                  0x000750                  _getMultiKeyNotBlocking
+                  0x00083c                  _main
+                  0x00097e                  _sequenceLine
+                  0x0009c2                  _sequenceColumn
+                  0x000a06                  _imCrazyAndTurnAllOff
+                  0x000a22                  _LEDInit
+                  0x000a34                  _onLED
+                  0x000a84                  _offLED
+                  0x000ad4                  _switchLED
+                  0x000bf6                  _CANinit
+                  0x000cbc                  _CANsendMessage
+                  0x000d02                  _CANtransmissionCompleted
+                  0x000d1c                  _Timer1Init
+                  0x000d62                  _Timer1Start
+                  0x000d6a                  _Timer1Pause
+                  0x000d72                  _Timer1Stop
+                  0x000d7e                  _TimerClearInt
+                  0x000d86                  _Delay3Tcy
+                  0x000d88                  _Delay10us
+                  0x000d90                  _Delay20us
+                  0x000d98                  _Delay150us
+                  0x000da0                  _Delay5ms
+                  0x000da8                  _Delay15ms
+                  0xf8000a                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x000c72                  _Delay10us
-                  0x000c82                  _Delay150us
-                  0x000c92                  _Delay15ms
-                  0x000c7a                  _Delay20us
-                  0x000c70                  _Delay3Tcy
-                  0x000c8a                  _Delay5ms
+                  0x000bf6                  _CANinit
+                  0x000cbc                  _CANsendMessage
+                  0x000d02                  _CANtransmissionCompleted
+                  0x000d88                  _Delay10us
+                  0x000d98                  _Delay150us
+                  0x000da8                  _Delay15ms
+                  0x000d90                  _Delay20us
+                  0x000d86                  _Delay3Tcy
+                  0x000da0                  _Delay5ms
                   0x000586                  _KeybInit
                   0x0001da                  _LCDClear
                   0x000256                  _LCDHideCursor
@@ -175,27 +203,28 @@ External Symbols in Program Memory (by name):
                   0x00030c                  _LCDWriteCmd
                   0x00048c                  _LCDWriteData
                   0x000402                  _LCDWriteNibbleCmd
-                  0x000a32                  _LEDInit
-                  0x000c06                  _Timer1Init
-                  0x000c54                  _Timer1Pause
-                  0x000c4c                  _Timer1Start
-                  0x000c5c                  _Timer1Stop
-                  0x000c68                  _TimerClearInt
+                  0x000a22                  _LEDInit
+                  0x000d1c                  _Timer1Init
+                  0x000d6a                  _Timer1Pause
+                  0x000d62                  _Timer1Start
+                  0x000d72                  _Timer1Stop
+                  0x000d7e                  _TimerClearInt
                   0x000190                  __DefaultInterrupt
+                  0xf8000a                  __FGS.sec
                   0x000132                  __data_init
                   0x000132                  __data_init_standard
                   0x000122                  __psv_init
                   0x000100                  __resetPRI
                   0x00059a                  _getKeyBlocking
-                  0x00067a                  _getKeyNotBlocking
-                  0x000760                  _getMultiKeyNotBlocking
-                  0x000a16                  _imCrazyAndTurnAllOff
-                  0x00084c                  _main
-                  0x000a94                  _offLED
-                  0x000a44                  _onLED
-                  0x0009d2                  _sequenceColumn
-                  0x00098e                  _sequenceLine
-                  0x000ae4                  _switchLED
+                  0x000672                  _getKeyNotBlocking
+                  0x000750                  _getMultiKeyNotBlocking
+                  0x000a06                  _imCrazyAndTurnAllOff
+                  0x00083c                  _main
+                  0x000a84                  _offLED
+                  0x000a34                  _onLED
+                  0x0009c2                  _sequenceColumn
+                  0x00097e                  _sequenceLine
+                  0x000ad4                  _switchLED
                   0x0002ce                  _waitLCD
 
 Memory Configuration
@@ -228,6 +257,7 @@ LOAD KEYBlib.o
 LOAD LCDlib.o
 LOAD LEDlib.o
 LOAD TIMERlib.o
+LOAD CANlib.o
 LOAD p1-teclado_leds.o
 LOAD c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib/dsPIC30F\libp30F4011-coff.a
                     0x8005c0                  __FUID0 = 0x8005c0
@@ -290,14 +320,17 @@ __FUID2
 __FUID3
  *(__FUID3.sec*)
 
-__FOSC
+__FOSC            0xf80000          0x2
  *(__FOSC.sec*)
+ __FOSC.sec       0xf80000          0x2 p1-teclado_leds.o
 
-__FWDT
+__FWDT            0xf80002          0x2
  *(__FWDT.sec*)
+ __FWDT.sec       0xf80002          0x2 p1-teclado_leds.o
 
-__FBORPOR
+__FBORPOR         0xf80004          0x2
  *(__FBORPOR.sec*)
+ __FBORPOR.sec    0xf80004          0x2 p1-teclado_leds.o
 
 __RESERVED1
  *(__RESERVED1.sec*)
@@ -305,8 +338,10 @@ __RESERVED1
 __RESERVED2
  *(__RESERVED2.sec*)
 
-__FGS
+__FGS             0xf8000a          0x2
  *(__FGS.sec*)
+ __FGS.sec        0xf8000a          0x2 FGS
+                  0xf8000a                  _FGS.sec
 
 __FICD
  *(__FICD.sec*)
@@ -1188,11 +1223,12 @@ LOAD c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib\libm-coff.a
 LOAD c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib\libc-coff.a
 END GROUP
 OUTPUT(default.cof coff-pic30)
+LOAD FGS
 LOAD data_init
 LOAD default_isr
 
 __c30_signature
-                  0x000000         0x2a
+                  0x000000         0x30
  __c30_signature
                   0x000000          0x6 KEYBlib.o
  __c30_signature
@@ -1202,11 +1238,13 @@ __c30_signature
  __c30_signature
                   0x000012          0x6 TIMERlib.o
  __c30_signature
-                  0x000018          0x6 p1-teclado_leds.o
+                  0x000018          0x6 CANlib.o
  __c30_signature
-                  0x00001e          0x6 c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib\libpic30-coff.a(crt0_standard.o)
+                  0x00001e          0x6 p1-teclado_leds.o
  __c30_signature
-                  0x000024          0x6 c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib\libpic30-coff.a(data_init_standard.o)
+                  0x000024          0x6 c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib\libpic30-coff.a(crt0_standard.o)
+ __c30_signature
+                  0x00002a          0x6 c:/program files (x86)/microchip/mplab c30/bin/bin/../../lib\libpic30-coff.a(data_init_standard.o)
 
 .ndata              0x0800         0x18
  .ndata             0x0800         0x18 p1-teclado_leds.o
@@ -1221,7 +1259,7 @@ __c30_signature
                     0x0818                  iteration
                     0x081a                  delay
 
-.text             0x000194        0xb12
+.text             0x000194        0xc28
  .text            0x000194        0x3f2 LCDlib.o
                   0x000194                  LCDInit
                   0x0001da                  LCDClear
@@ -1243,34 +1281,38 @@ __c30_signature
                   0x00030c                  LCDWriteCmd
                   0x000402                  LCDWriteNibbleCmd
                   0x00048c                  LCDWriteData
- .text            0x000586        0x2c6 KEYBlib.o
+ .text            0x000586        0x2b6 KEYBlib.o
                   0x000586                  KeybInit
                   0x00059a                  getKeyBlocking
-                  0x00067a                  getKeyNotBlocking
-                  0x000760                  getMultiKeyNotBlocking
- .text            0x00084c        0x1e6 p1-teclado_leds.o
-                  0x00084c                  main
-                  0x00098e                  sequenceLine
-                  0x0009d2                  sequenceColumn
-                  0x000a16                  imCrazyAndTurnAllOff
- .text            0x000a32        0x1d4 LEDlib.o
-                  0x000a32                  LEDInit
-                  0x000a44                  onLED
-                  0x000a94                  offLED
-                  0x000ae4                  switchLED
- .text            0x000c06         0x6a TIMERlib.o
-                  0x000c06                  Timer1Init
-                  0x000c4c                  Timer1Start
-                  0x000c54                  Timer1Pause
-                  0x000c5c                  Timer1Stop
-                  0x000c68                  TimerClearInt
- .text            0x000c70         0x36 delay.o
-                  0x000c70                  Delay3Tcy
-                  0x000c72                  Delay10us
-                  0x000c7a                  Delay20us
-                  0x000c82                  Delay150us
-                  0x000c8a                  Delay5ms
-                  0x000c92                  Delay15ms
+                  0x000672                  getKeyNotBlocking
+                  0x000750                  getMultiKeyNotBlocking
+ .text            0x00083c        0x1e6 p1-teclado_leds.o
+                  0x00083c                  main
+                  0x00097e                  sequenceLine
+                  0x0009c2                  sequenceColumn
+                  0x000a06                  imCrazyAndTurnAllOff
+ .text            0x000a22        0x1d4 LEDlib.o
+                  0x000a22                  LEDInit
+                  0x000a34                  onLED
+                  0x000a84                  offLED
+                  0x000ad4                  switchLED
+ .text            0x000bf6        0x126 CANlib.o
+                  0x000bf6                  CANinit
+                  0x000cbc                  CANsendMessage
+                  0x000d02                  CANtransmissionCompleted
+ .text            0x000d1c         0x6a TIMERlib.o
+                  0x000d1c                  Timer1Init
+                  0x000d62                  Timer1Start
+                  0x000d6a                  Timer1Pause
+                  0x000d72                  Timer1Stop
+                  0x000d7e                  TimerClearInt
+ .text            0x000d86         0x36 delay.o
+                  0x000d86                  Delay3Tcy
+                  0x000d88                  Delay10us
+                  0x000d90                  Delay20us
+                  0x000d98                  Delay150us
+                  0x000da0                  Delay5ms
+                  0x000da8                  Delay15ms
 
-.dinit            0x000ca6         0x1e
- .dinit           0x000ca6         0x1e data_init
+.dinit            0x000dbc         0x1e
+ .dinit           0x000dbc         0x1e data_init
